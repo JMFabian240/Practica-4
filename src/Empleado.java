@@ -1,17 +1,21 @@
 public abstract class Empleado {
-    protected String name;
+    protected String nombre;
     protected  String id;
     protected double salarioBase;
 
-    public Empleado(String name, String id, double salarioBase){
-        this.name = name;
+    public Empleado(String nombre, String id, double salarioBase){
+        this.nombre = nombre;
         this.id = id;
         this.salarioBase = salarioBase;
+    }
 
+    public Empleado(String id, String nombre) {
+        this.id = id;
+        this.nombre = nombre;
     }
 
     public String getName() {
-        return name;
+        return nombre;
     }
 
     public String getId() {
@@ -22,8 +26,8 @@ public abstract class Empleado {
         return salarioBase;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public void setId(String id) {
