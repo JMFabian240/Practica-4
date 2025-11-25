@@ -1,9 +1,9 @@
-public  class EmpleadoFreelance extends Empleado implements Benificable{
+public  class EmpleadoFreelance extends Empleado implements Benificable {
 
     private int horasTrabajadas;
     private double tarifaHora;
 
-    public EmpleadoFreelance(String id, String nombre, int horasTrabajadas, double tarifaHora){
+    public EmpleadoFreelance(String id, String nombre, int horasTrabajadas, double tarifaHora) {
         super(id, nombre);
         this.id = id;
         this.nombre = nombre;
@@ -19,7 +19,7 @@ public  class EmpleadoFreelance extends Empleado implements Benificable{
         return tarifaHora;
     }
 
-    public  void setHorasTrabajdas (int horasTrabajadas){
+    public void setHorasTrabajdas(int horasTrabajadas) {
         this.horasTrabajadas = horasTrabajadas;
     }
 
@@ -34,18 +34,31 @@ public  class EmpleadoFreelance extends Empleado implements Benificable{
 
     @Override
     public double calcularSalario() {
-        return (horasTrabajadas * tarifaHora) + calcularBonificaicon();
+        double bonificacion = calcularBonificaicon();
+        double salario = horasTrabajadas * tarifaHora;
+        return salario + bonificacion;
     }
 
     @Override
     public double calcularBonificaicon() {
-        if (horasTrabajadas > 160)
-            return calcularSalario() * 0.05;
-        else return 0;
+        if (horasTrabajadas > 160) {
+            double salario = horasTrabajadas * tarifaHora;
+            return salario * 0.05;
+        }
+        else {
+            return 0;
+        }
     }
 
     @Override
     public double aplicarDescuentoSeguro() {
         return calcularSalario() * 0.03;
+    }
+
+    @Override
+    public void mostrarInfo() {
+        System.out.println( "ID: " + getId() );
+        System.out.println( "Nombre: " + getName() );
+        System.out.println( "Salario: " + calcularSalario() );
     }
 }

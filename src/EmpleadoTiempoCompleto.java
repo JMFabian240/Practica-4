@@ -41,4 +41,9 @@ public class EmpleadoTiempoCompleto extends Empleado implements Benificable {
     public double aplicarDescuentoSeguro() {
         return calcularSalario() * 0.05 ;
     }
+
+    @Override
+    public void mostrarInfo() {
+        super.mostrarInfo();
+    }
 }
